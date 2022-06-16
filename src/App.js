@@ -7,7 +7,7 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [input, setInput] = useState("");
   useEffect(() => {
-    const location = axios.get('http://api.weatherapi.com/v1/current.json?key=d7ab6f7edfc6485fb15141106221506&q=Polokwane&aqi=yes')
+    const location = axios.get(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API}&q=Polokwane&aqi=yes`)
       .then(data => {
         setWeather(data.data)
       })
@@ -37,6 +37,7 @@ function App() {
                 <div className="condition">
                   <h3>The current weather is {weather.current.temp_c}° Celcius</h3>
                   <img src={weather.current.condition.icon} alt='The current weather condition icon' />
+                  <h3>The current weather is {weather.current.temp_f}° Fahrenheit</h3>
                 </div>
               </div>
             </div>
