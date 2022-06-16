@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import allReducers from './reducers';
+import { createStore } from 'redux';
+
+
+const store = createStore(counterReducer, loggedReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

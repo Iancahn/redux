@@ -1,6 +1,6 @@
 // test
 import React, { useEffect, useState } from 'react';
-import s from './App.css'
+import s from './App.css';
 import axios from 'axios';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     setInput(e.target.value);
   };
   const searchWeather = () => {
-    axios.get(`http://api.weatherapi.com/v1/current.json?key=d7ab6f7edfc6485fb15141106221506&q=${input}`)
+    axios.get(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API}&q=${input}`)
       .then(data => {
         setWeather(data.data);
       })
