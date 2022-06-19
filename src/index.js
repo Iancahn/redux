@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import allReducers from './reducers';
-import { configureStore } from '@reduxjs/toolkit';
+// import allReducers from './reducers';
+// import { configureStore } from '@reduxjs/toolkit';
 
-const store = configureStore(allReducers);
+// const store = configureStore(
+//   allReducers, /* preloadedState, */
+//   +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
