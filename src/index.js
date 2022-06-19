@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import allReducers from './reducers';
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 
-
-const store = createStore(counterReducer, loggedReducer);
+const store = configureStore(allReducers);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
