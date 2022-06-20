@@ -2,10 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import allReducers from './reducers';
-// import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+//Reducers
+import counterReducer from './reducers/counter';
+import loggedReducer from './reducers/isLogged';
 
-// const store = configureStore(
+const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+    isLogged: loggedReducer,
+  }
+});
 //   allReducers, /* preloadedState, */
 //   +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 // );
