@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
-//Reducers
+//Reducers test
 import counterReducer from './reducers/counter';
 import loggedReducer from './reducers/isLogged';
+import { Provider } from 'react-redux';
 
 const store = configureStore({
   reducer: {
@@ -20,7 +21,9 @@ const store = configureStore({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import Nav from './Nav';
+
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
-  function prevCount() {
-    setCount(prev => prev - 1)
-  }
+  // function prevCount() {
+  //   setCount(prev => prev - 1)
+  // }
 
-  function nextCount() {
-    setCount(next => next + 1)
-  }
+  // function nextCount() {
+  //   setCount(next => next + 1)
+  // }
 
+  const counter = useSelector((state) => state.counter);
+  const signedIn = useSelector((state) => state.isLogged);
+  const dispatch = useDispatch();
   return (
     <div>
-      <button onClick={prevCount} >Decrease This counter</button>
-      <h1>Counter: {count}</h1>
-      <button onClick={nextCount} >Increase the count</button>
+      <Nav />
+      {signedIn && (
+        <h1>You are signed in now</h1>
+      )}
+      <h1>Counter: {counter}</h1>
+      <button onClick={() => dispatch({ type: 'INCREMENT' })}>Increase the count</button>
     </div >
   )
 }
